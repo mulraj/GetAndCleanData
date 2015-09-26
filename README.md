@@ -18,6 +18,17 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 Here are the data for the project:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
+The original data set was produced by Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory DITEN - Università degli Studi di Genova. Detailed information about
+it is available in following files:
+
+1. smartlab_readme.txt
+2. smartlab_features_info.txt
+3. smartlab_features.txt
+
+The dataset 'AvgHumanActivityDataUsingSmartphone.txt' was produced from original data
+per project instructions provided below:
+
 Student should create one R script called run_analysis.R that does the following.
 
 1. Merges the training and the test sets to create one data set.
@@ -25,6 +36,10 @@ Student should create one R script called run_analysis.R that does the following
 3. Uses descriptive activity names to name the activities in the data set
 4. Appropriately labels the data set with descriptive variable names. 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+Following text provides detailed desciption with embedded code templates on how the resultant data was produced. The  field description
+for  the 'AvgHumanActivityDataUsingSmartphone.txt' file provided in 'codebook.md' has been derived from original dataset's readme.txt and 
+features_info.txt and features.txt.
 
 #####Note 1:
 The data in "inertial folder" has been ignored. This data doesn't have column names.  
@@ -116,7 +131,7 @@ activity code with activity description
 	# replace activity column by descriptive activity names from labels read above
 	   xFinal <- mutate(xFinal, activity = activityLable[activity,2])
 
-Create new data table grouped by subject and activity and average of each column
+Create new data table grouped by subject and activity and average of each column and save to file
 
 <!-- -->
 	xAvg <- xFinal %>% group_by(subject, activity) %>% summarize_each(c("mean"))
@@ -134,3 +149,19 @@ text file 'AvgHumanActivityDataUsingSmartphone.txt' can be read using:
 <!-- -->
 	df <- read.table("./AvgHumanActivityDataUsingSmartphone.txt". header=TRUE)
 
+
+####License and Acknowledgement:
+The use of the original dataset is licensed and acknowledged from original work as below:
+
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
+Human Activity Recognition Using Smartphones Dataset
+Version 1.0
+==================================================================
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Università degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+activityrecognition@smartlab.ws
+www.smartlab.ws
+Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
