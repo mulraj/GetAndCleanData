@@ -29,11 +29,12 @@ Rest of the columns capture the average of 'mean' and 'std' readings from origin
 4. 'mean' indicates that it's average of 'mean' columns of original data. 'std' indicates  average of standard deviation columns of original data.
 5. 'X' indicates X axis signal. 'Y' indicates Y axis. 'Z' indicates Z axis.
 
-	tBodyAcc.mean.X
-	tBodyAcc.mean.Y
-	tBodyAcc.mean.Z
-	tGravityAcc.mean.X
-	tGravityAcc.mean.Y
+tBodyAcc.mean.X
+tBodyAcc.mean.Y
+tBodyAcc.mean.Z
+
+tGravityAcc.mean.X
+tGravityAcc.mean.Y
 	tGravityAcc.mean.Z
 	tBodyAccJerk.mean.X
 	tBodyAccJerk.mean.Y
