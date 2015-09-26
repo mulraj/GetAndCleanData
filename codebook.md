@@ -21,103 +21,33 @@ activity | character | Describes activities for which rest of the average readin
 Rest of the columns capture the average of 'mean' and 'std' readings from original dataset. The detailed description is available in the
 'smartlab; files above - the column name are constructed to describe the data as below:
 
+e.g. in 
+tBodyAcc.mean.X or
+tGravityAcc.mean.X or
+fBodyAccJerk.mean.X or
+tBodyAcc.std.X etc.
+
 1. 't' indicates time domain signal. For 'Fast Fourier Transform' readings this value is 'f'
 2. 'Body' indicates body signal. "greavity' indicates gravity signal.
 3. 'Acc' indicates that this signal was captured by accelerometer. 'Gyro' indicates captured by gyroscope.
     'AccJerk'  and 'GyroJerk' indicate 'jerk' signals.
-    'AccMag', 'GravityAccMag', 'AccJerkMag', 'GyroMag', 'GyroJerkMag' indicate magnitude.
 4. 'mean' indicates that it's average of 'mean' columns of original data. 'std' indicates  average of standard deviation columns of original data.
 5. 'X' indicates X axis signal. 'Y' indicates Y axis. 'Z' indicates Z axis.
 
-tBodyAcc.mean.X
-tBodyAcc.mean.Y
-tBodyAcc.mean.Z
+tBodyAccMag.mean
+fBodyAccMag.mean
+fBodyAccMag.std 
+fBodyBodyAccJerkMag.std
+etc.
+capture average and standard deviation of 'magnitude' of respective signals. 
 
-tGravityAcc.mean.X
-tGravityAcc.mean.Y
-	tGravityAcc.mean.Z
-	tBodyAccJerk.mean.X
-	tBodyAccJerk.mean.Y
-	tBodyAccJerk.mean.Z
-	tBodyGyro.mean.X
-	tBodyGyro.mean.Y
-	tBodyGyro.mean.Z
-	tBodyGyroJerk.mean.X
-	tBodyGyroJerk.mean.Y
-	tBodyGyroJerk.mean.Z
-	tBodyAccMag.mean
-	tGravityAccMag.mean
-	tBodyAccJerkMag.mean
-	tBodyGyroMag.mean
-	tBodyGyroJerkMag.mean
-	fBodyAcc.mean.X
-	fBodyAcc.mean.Y
-	fBodyAcc.mean.Z
-	fBodyAcc.meanFreq.X
-	fBodyAcc.meanFreq.Y
-	fBodyAcc.meanFreq.Z
-	fBodyAccJerk.mean.X
-	fBodyAccJerk.mean.Y
-	fBodyAccJerk.mean.Z
-	fBodyAccJerk.meanFreq.X
-	fBodyAccJerk.meanFreq.Y
-	fBodyAccJerk.meanFreq.Z
-	fBodyGyro.mean.X
-	fBodyGyro.mean.Y
-	fBodyGyro.mean.Z
-	fBodyGyro.meanFreq.X
-	fBodyGyro.meanFreq.Y
-	fBodyGyro.meanFreq.Z
-	fBodyAccMag.mean
-	fBodyAccMag.meanFreq
-	fBodyBodyAccJerkMag.mean
-	fBodyBodyAccJerkMag.meanFreq
-	fBodyBodyGyroMag.mean
-	fBodyBodyGyroMag.meanFreq
-	fBodyBodyGyroJerkMag.mean
-	fBodyBodyGyroJerkMag.meanFreq
-	tBodyAcc.std.X
-	tBodyAcc.std.Y
-	tBodyAcc.std.Z
-	tGravityAcc.std.X
-	tGravityAcc.std.Y
-	tGravityAcc.std.Z
-	tBodyAccJerk.std.X
-	tBodyAccJerk.std.Y
-	tBodyAccJerk.std.Z
-	tBodyGyro.std.X
-	tBodyGyro.std.Y
-	tBodyGyro.std.Z
-	tBodyGyroJerk.std.X
-	tBodyGyroJerk.std.Y
-	tBodyGyroJerk.std.Z
-	tBodyAccMag.std
-	tGravityAccMag.std
-	tBodyAccJerkMag.std
-	tBodyGyroMag.std
-	tBodyGyroJerkMag.std
-	fBodyAcc.std.X
-	fBodyAcc.std.Y
-	fBodyAcc.std.Z
-	fBodyAccJerk.std.X
-	fBodyAccJerk.std.Y
-	fBodyAccJerk.std.Z
-	fBodyGyro.std.X
-	fBodyGyro.std.Y
-	fBodyGyro.std.Z
-	fBodyAccMag.std
-	fBodyBodyAccJerkMag.std
-	fBodyBodyGyroMag.std
-	fBodyBodyGyroJerkMag.std
+and
 
-Following capyures 'angle' between the vectors:
-	angle.tBodyAccMean.gravity.
-	angle.tBodyAccJerkMeangravityMean.
-	angle.tBodyGyroMean.gravityMean.
-	angle.tBodyGyroJerkMean.gravityMean.
-	angle.X.gravityMean.
-	angle.Y.gravityMean.
-	angle.Z.gravityMean.
+angle.tBodyAccMean.gravity. 
+angle.tBodyAccJerkMeangravityMean.
+angle.X.gravityMean.
+etc. 
+capture 'angle' between the vectors.
 
 ####License and Acknowledgement:
 The use of the original dataset is licensed and acknowledged from original work as below:
