@@ -26,22 +26,12 @@ Student should create one R script called run_analysis.R that does the following
 4. Appropriately labels the data set with descriptive variable names. 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-####Note 1:
-The code generates "wide" form of tidy data. One row per subject (30), per activity (6), thus total 180 rows.
-One column for subject, activity and average of  'mean' and 'standard deviation'  columns from original
-observations for  'subject'-'activity pair. (88 columns). Please note that subset was created by extracting all the 
-columns which contained words "mean" or "std" (case insensitive) per 'features_info.txt' file. The generated
-text file 'AvgHumanActivityDataUsingSmartphone.txt' can be read using:
-
-<!-- -->
-	df <- read.table("./AvgHumanActivityDataUsingSmartphone.txt". header=TRUE)
-
-####Note 2:
+#####Note 1:
 The data in "inertial folder" has been ignored. This data doesn't have column names.  
 Step#2 asks to get rid of all the variables that are not "mean" or "standard deviation" so this 
 data will be not be extrcated. So why take trouble merging it?
 
-####Note 3:
+#####Note 2:
 Per assignment instructions code assumes that the Samsung data has been 
 downloaded and unzipped into a 'working directory'.
 Script assumes that unzipped directory structure is maintained. 
@@ -51,7 +41,7 @@ directory as parent of 'UCI HAR Dataset' direcory.
 
 ## Code follows following logic to create required "tidy data set" from raw data
 
-1. Define base directory and construct fully qualified file names
+Define base directory and construct fully qualified file names
 
 <!-- -->
 	basedir = "./UCI HAR Dataset"
@@ -67,7 +57,7 @@ directory as parent of 'UCI HAR Dataset' direcory.
 	y_train = paste0(basedir,"/train/y_train.txt")
 	subject_train = paste0(basedir,"/train/subject_train.txt")
 
-2. read the test data file(X_test), associated subject data file (subject_test)
+Read the test data file(X_test), associated subject data file (subject_test)
 and associated training lable data file (y_test)
 
 <!-- -->
@@ -75,13 +65,13 @@ and associated training lable data file (y_test)
 	subjectTest <- read.table(subject_test)
 	yTest <- read.table(y_test)
 
-3.  add subject info and activity info as left most columns. Thus, consolidated
+Add subject info and activity info as left most columns. Thus, consolidated
 'training' data is now ready.
 
 <!-- -->
 	xTest1 <- cbind(subjectTest, yTest, xTest)
 
-4.  repeat above steps for training data files to prepare consolidated 'training' data.
+Repeat above steps for training data files to prepare consolidated 'training' data.
 
 <!-- -->
 	 xTrain <- read.table(X_train)
@@ -90,12 +80,12 @@ and associated training lable data file (y_test)
 
 	xTrain1 <- cbind(subjectTrain, yTrain, xTrain)
 
-5. merge test and train data to create single data set
+Merge test and train data to create single data set
 
 <!-- -->
 	xAll <- rbind(xTest1, xTrain1)
 
-6. Make and clean column names from 'feature.txt' file:
+Make and clean column names from 'feature.txt' file:
 
 <!-- -->
 	# read features.txt to get the names to be assigned to columns
@@ -113,12 +103,12 @@ and associated training lable data file (y_test)
 	# assign column names to the consolidated data
 	   names(xAll) <- n1
 
-7.  create final data by selecting only "mean" and "standard deviation" columns
+Create final data by selecting only "mean" and "standard deviation" columns
 
 <!-- -->
 	xFinal <- xAll[,c(1,2,grep("*[Mm]ean*",n1),grep("*std*",n1))]
 
-8. read activity lables from 'activity_labels' file and use the lables to replace
+Read activity lables from 'activity_labels' file and use the lables to replace
 activity code with activity description
 
 <!-- -->
@@ -126,10 +116,21 @@ activity code with activity description
 	# replace activity column by descriptive activity names from labels read above
 	   xFinal <- mutate(xFinal, activity = activityLable[activity,2])
 
-9. create new data table grouped by subject and activity and average of each column
+Create new data table grouped by subject and activity and average of each column
 
 <!-- -->
 	xAvg <- xFinal %>% group_by(subject, activity) %>% summarize_each(c("mean"))
 
 	# Write the new data to a text file
 	   write.table(xAvg,"./AvgHumanActivityDataUsingSmartphone.txt", row.name=FALSE)
+
+#####Note 3:
+The code generates "wide" form of tidy data. One row per subject (30), per activity (6), thus total 180 rows.
+One column for subject, activity and average of  'mean' and 'standard deviation'  columns from original
+observations for  'subject'-'activity pair. (88 columns). Please note that subset was created by extracting all the 
+columns which contained words "mean" or "std" (case insensitive) per 'features_info.txt' file. The generated
+text file 'AvgHumanActivityDataUsingSmartphone.txt' can be read using:
+
+<!-- -->
+	df <- read.table("./AvgHumanActivityDataUsingSmartphone.txt". header=TRUE)
+
