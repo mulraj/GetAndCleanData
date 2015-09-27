@@ -15,17 +15,20 @@ README.md.
 Each record contains average readings on 'mean' and 'std' (standard deviation) reading for each subject for each activity.
 
 Field Name | Field Type | Description
+---------- | ---------- | -----------
 subject | integer | Values 1 to 30. Identifies each volunteer for which the data was captured.
 activity | character | Describes activities for which rest of the average reading are applicable.
 
 Rest of the columns capture the average of 'mean' and 'std' readings from original dataset. The detailed description is available in the
 'smartlab; files above - the column name are constructed to describe the data as below:
 
-e.g. in 
-tBodyAcc.mean.X or
-tGravityAcc.mean.X or
-fBodyAccJerk.mean.X or
-tBodyAcc.std.X etc.
+For:
+
+- tBodyAcc.mean.X or
+- tGravityAcc.mean.X or
+- fBodyAccJerk.mean.X or
+- tBodyAcc.std.X 
+- etc.
 
 1. 't' indicates time domain signal. For 'Fast Fourier Transform' readings this value is 'f'
 2. 'Body' indicates body signal. "greavity' indicates gravity signal.
@@ -34,19 +37,19 @@ tBodyAcc.std.X etc.
 4. 'mean' indicates that it's average of 'mean' columns of original data. 'std' indicates  average of standard deviation columns of original data.
 5. 'X' indicates X axis signal. 'Y' indicates Y axis. 'Z' indicates Z axis.
 
-tBodyAccMag.mean
-fBodyAccMag.mean
-fBodyAccMag.std 
-fBodyBodyAccJerkMag.std
-etc.
+- tBodyAccMag.mean
+- fBodyAccMag.mean
+- fBodyAccMag.std
+- fBodyBodyAccJerkMag.std
+- etc.
 capture average and standard deviation of 'magnitude' of respective signals. 
 
 and
 
-angle.tBodyAccMean.gravity. 
-angle.tBodyAccJerkMeangravityMean.
-angle.X.gravityMean.
-etc. 
+- angle.tBodyAccMean.gravity. 
+- angle.tBodyAccJerkMeangravityMean.
+- angle.X.gravityMean.
+- etc. 
 capture 'angle' between the vectors.
 
 ####License and Acknowledgement:
