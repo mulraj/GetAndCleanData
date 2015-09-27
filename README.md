@@ -5,7 +5,7 @@ This is an assignment project for coursera course "Getting and Cleaning Data" by
 The purpose of this project is to demonstrate student's ability to collect, work with, and clean a 
 data set. The goal is to prepare tidy data that can be used for later analysis. 
 
-## Obtaining the RAW data
+### Obtaining the RAW data
 
 One of the most exciting areas in all of data science right now is wearable computing - see for example this article:
 http://www.insideactivitytracking.com/data-science-activity-tracking-and-the-battle-for-the-worlds-top-sports-brand/. 
@@ -54,7 +54,7 @@ Files are unzipped under 'UCI HAR Dataset' directory, so that is
 considered as base directory. Please use 'setwd()' command to set working
 directory as parent of 'UCI HAR Dataset' direcory.
 
-## Code follows following logic to create required "tidy data set" from raw data
+### Code follows following logic to create required "tidy data set" from raw data
 
 Define base directory and construct fully qualified file names
 
